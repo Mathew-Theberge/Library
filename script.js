@@ -10,20 +10,19 @@ function Book(title, author, pages, isRead) {
 	this.isRead = isRead
 }
 
-function addBooktoLibrary() {
-	
-}
-
-newBook.addEventListener("click", () => {
-	modal.showModal()
-})
-
-form.addEventListener("submit", (e) => {
+function addBooktoLibrary(e) {
 	e.preventDefault()
 	const formData = new FormData(form)
 	const formDataObj = Object.fromEntries(formData)
 	myLibrary.push(formDataObj)
 	form.reset()
 	modal.close()
+	console.log(myLibrary)
+}
+
+newBook.addEventListener("click", () => {
+	modal.showModal()
 })
+
+form.addEventListener("submit", addBooktoLibrary)
 
