@@ -8,6 +8,44 @@
     <title>Library</title>
 </head>
 <body>
-    
+
+    <dialog data-modal="">
+        <form action="">
+            <div>
+                <label for="title">Title</label>
+                <input type="text" name="book_title" id="title">
+            </div>
+            <div>
+                <label for="author">Author</label>
+                <input type="text" name="book_author" id="author">
+            </div>
+            <div>
+                <label for="pages">Pages</label>
+                <input type="number" name="book_pages" id="pages">
+            </div>
+            <label for="is-read">Have you read it?</label>
+            <input type="checkbox" name="is_read" id="is-read">
+            <button>Submit</button>
+        </form>
+    </dialog>
+
+    <header>
+        <div class="logo">Library</div>
+        <button class="new-book">New Book</button>
+    </header>
+
+    <section>
+        <h1>Reading List</h1>
+        <div class="card-container">
+            <div class="card">
+                <div>title</div>
+                <div>author</div>
+                <div>pages</div>
+                <button>read</button><br>
+                <button>remove</button>
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>

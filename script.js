@@ -1,3 +1,6 @@
+const modal = document.querySelector("[data-modal]")
+const newBook = document.querySelector(".new-book")
+
 const myLibrary = []
 
 function Book(title, author, pages, isRead) {
@@ -6,3 +9,11 @@ function Book(title, author, pages, isRead) {
 	this.pages = pages
 	this.isRead = isRead
 }
+
+function addBooktoLibrary() {
+	
+}
+
+newBook.addEventListener("click", () => {
+	modal.showModal()
+})
