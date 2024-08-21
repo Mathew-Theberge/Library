@@ -26,18 +26,18 @@ function displayBooks() {
         cardContainer.removeChild(cardContainer.firstChild)
     }
     myLibrary.forEach( (book) => {
-        const div = document.createElement("div")
-        div.classList.add("card")
-        cardContainer.append(div)
+        const card = document.createElement("div")
+        card.classList.add("card")
+        cardContainer.append(card)
         const title = document.createElement("div")
         title.textContent = book.title
-        div.append(title)
+        card.append(title)
         const author = document.createElement("div")
         author.textContent = book.author
-        div.append(author)
+        card.append(author)
         const pages = document.createElement("div")
         pages.textContent = book.pages
-        div.append(pages)
+        card.append(pages)
         const isReadBtn = document.createElement("button")
         if (book.isRead === "true") {
             isReadBtn.classList.add("read-btn")
@@ -59,7 +59,23 @@ function displayBooks() {
                 book.isRead = "true"
             }
         })
-        div.append(isReadBtn)
+        card.append(isReadBtn)
+
+        const deleteBtn = document.createElement("button")
+        deleteBtn.textContent = "Remove Book"
+        card.append(deleteBtn)
+
+        deleteBtn.addEventListener("click", () => {
+            myLibrary.splice(book.id, 1)
+            card.remove()
+            // resets id values on all remaining objects after deletion
+            // in order to re alighn id values to array indexes
+            number = 0
+            myLibrary.forEach( (book) => {
+                book.id = number
+                ++number
+            })
+        })
     })
 }
 
@@ -82,12 +98,3 @@ form.addEventListener("submit", (e) => {
     form.reset()
     modal.close()
 })
-
-addBooktoLibrary(1, 2, 3, true, 5)
-console.log(myLibrary)
-addBooktoLibrary(11, 22, 33, false, 55)
-console.log(myLibrary)
-addBooktoLibrary(15, 24, 33, true, 51)
-console.log(myLibrary)
-
-displayBooks()
