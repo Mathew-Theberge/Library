@@ -46,6 +46,19 @@ function displayBooks() {
             isReadBtn.classList.add("not-read-btn")
             isReadBtn.textContent = "Not Read"
         }
+        isReadBtn.addEventListener("click", () => {
+            if (isReadBtn.matches(".read-btn")) {
+                isReadBtn.classList.remove("read-btn")
+                isReadBtn.classList.add("not-read-btn")
+                isReadBtn.textContent = "Not Read"
+                book.isRead = null
+            } else {
+                isReadBtn.classList.remove("not-read-btn")
+                isReadBtn.classList.add("read-btn")
+                isReadBtn.textContent = "Read"
+                book.isRead = "true"
+            }
+        })
         div.append(isReadBtn)
     })
 }
