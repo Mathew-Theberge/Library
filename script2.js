@@ -39,11 +39,12 @@ function displayBooks() {
         pages.textContent = book.pages
         div.append(pages)
         const isReadBtn = document.createElement("button")
-        isReadBtn.textContent = book.isRead
-        if (isReadBtn === "true") {
+        if (book.isRead === "true") {
             isReadBtn.classList.add("read-btn")
+            isReadBtn.textContent = "Read"
         } else {
             isReadBtn.classList.add("not-read-btn")
+            isReadBtn.textContent = "Not Read"
         }
         div.append(isReadBtn)
     })
@@ -65,6 +66,8 @@ form.addEventListener("submit", (e) => {
         formDataObj.id
     )
     displayBooks()
+    form.reset()
+    modal.close()
 })
 
 addBooktoLibrary(1, 2, 3, true, 5)
