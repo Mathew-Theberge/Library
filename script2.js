@@ -1,7 +1,10 @@
 const cardContainer = document.querySelector(".card-container")
-
+const newBook = document.querySelector(".new-book")
+const modal = document.querySelector("[data-modal]")
+const form = document.querySelector("form")
 
 const myLibrary = []
+let number = 0
 
 function Book(title, author, pages, isRead, id) {
 	this.title = title
@@ -11,12 +14,17 @@ function Book(title, author, pages, isRead, id) {
     this.id = id
 }
 
-function addBooktoLibrary(title, author, pages, isRead, id) {
+function addBooktoLibrary(title, author, pages, isRead) {
+    id = number
+    ++number
     const book = new Book(title, author, pages, isRead, id)
     myLibrary.push(book)
 }
 
 function displayBooks() {
+    while(cardContainer.firstChild) {
+        cardContainer.removeChild(cardContainer.firstChild)
+    }
     myLibrary.forEach( (book) => {
         const div = document.createElement("div")
         div.classList.add("card")
@@ -40,6 +48,24 @@ function displayBooks() {
         div.append(isReadBtn)
     })
 }
+
+newBook.addEventListener("click", () => {
+    modal.showModal()
+} )
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault()
+	const formData = new FormData(form)
+	const formDataObj = Object.fromEntries(formData)
+    addBooktoLibrary(
+        formDataObj.book_title,
+        formDataObj.book_author,
+        formDataObj.book_pages,
+        formDataObj.is_read,
+        formDataObj.id
+    )
+    displayBooks()
+})
 
 addBooktoLibrary(1, 2, 3, true, 5)
 console.log(myLibrary)
