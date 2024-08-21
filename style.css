@@ -42,6 +42,10 @@ section > h1 {
 	font-size: 2rem;
 }
 
+form > h2 {
+	text-align: center;
+}
+
 .card-container {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -83,5 +87,54 @@ button {
 .not-read-btn {
 	background-color: rgb(255, 93, 93);
 }
+
+form > button {
+	background-color: rgb(135, 255, 135);
+}
+
+form {
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+input {
+	padding: 7px;
+	border-radius: 4px;
+	border: 1px black solid;
+	background-color: rgb(236, 236, 236);
+	font-size: 1rem;
+	display: block;
+  margin-right: auto;
+  margin-left: auto;
+	margin-top: 2px;
+}
+
+.checkbox-container {
+	display: flex;
+	align-items: center;
+	margin: auto;
+}
+
+input[type=checkbox] {
+	margin-left: 12px;
+	height: 20px;
+	width: 20px;
+	accent-color: red;
+	margin-top: 0;
+}
+
+dialog {
+	border-radius: 16px;
+	border: 2px solid black;
+	outline: none;
+}
+
+dialog::backdrop {
+	background-color: rgb(0 0 0 / 0.5);
+}
+
+
 
 
