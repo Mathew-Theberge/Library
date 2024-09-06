@@ -6,12 +6,14 @@ const form = document.querySelector("form")
 const myLibrary = []
 let number = 0
 
-function Book(title, author, pages, isRead, id) {
-	this.title = title
-	this.author = author
-	this.pages = pages
-	this.isRead = isRead
-    this.id = id
+class Book {
+    constructor(title, author, pages, isRead, id) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.isRead = isRead
+        this.id = id
+    }
 }
 
 function addBooktoLibrary(title, author, pages, isRead) {
